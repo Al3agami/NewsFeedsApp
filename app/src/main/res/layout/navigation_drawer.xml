@@ -10,13 +10,14 @@
 		android:layout_height="60dp"
 		android:layout_marginTop="40dp"
 		android:layout_marginStart="25dp"
-		android:src="@drawable/civ_pp"
+		android:src="@drawable/suited_pp"
 		app:layout_constraintTop_toTopOf="parent"
 		app:layout_constraintStart_toStartOf="parent"/>
 	<LinearLayout
 		android:id="@+id/ll_user_name"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:background="@color/drawerBackground"
 		android:orientation="vertical"
 		android:layout_marginStart="10dp"
 		app:layout_constraintStart_toEndOf="@+id/civ_avatar"
@@ -28,13 +29,13 @@
 			android:layout_height="wrap_content"
 			android:text="@string/welcome"
 			android:textColor="@color/smallTextColor"
-			android:textSize="14dp"/>
+			android:textSize="@dimen/small_text"/>
 		<TextView
 			android:id="@+id/tv_username"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/username_text"
-			android:textSize="18dp"
+			android:textSize="@dimen/title"
 			android:textColor="@color/black"/>
 	</LinearLayout>
 	<ImageView

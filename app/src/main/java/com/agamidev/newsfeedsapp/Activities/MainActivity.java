@@ -25,6 +25,7 @@ import com.agamidev.newsfeedsapp.Adapters.NewsAdapter;
 import com.agamidev.newsfeedsapp.Models.NewsModel;
 import com.agamidev.newsfeedsapp.Fragments.NavigationDrawerFragment;
 import com.agamidev.newsfeedsapp.R;
+import com.agamidev.newsfeedsapp.Widget.Toaster;
 
 import java.util.ArrayList;
 
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
 
     private MainContract.presenter presenter;
 
+    Toaster toaster;
+
     private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
@@ -83,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
     }
 
     private void init(){
+        toaster = new Toaster(this);
         drawerLayout = findViewById(R.id.drawerLayout);
         fragmentManager = getSupportFragmentManager();
         newsArrayList = new ArrayList<>();
@@ -121,10 +125,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
         @Override
         public void onItemClick(NewsModel news) {
 
-            Toast.makeText(MainActivity.this,
-                    "List title:  " + news.getTitle(),
-                    Toast.LENGTH_LONG).show();
-
+            toaster.makeToast("List title:  " + news.getTitle());
             Intent i = new Intent(MainActivity.this, NewsDetailsActivity.class);
             i.putExtra("NewsModel",news);
             startActivity(i);
@@ -188,8 +189,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
 
     @Override
     public void onResponseFailure(Throwable throwable) {
-        Toast.makeText(MainActivity.this,
-                "Something went wrong...Error message: " + throwable.getMessage(),
-                Toast.LENGTH_LONG).show();
+        toaster.makeToast("Something went wrong...Error message: " + throwable.getMessage());
     }
 }

@@ -92,11 +92,7 @@ public class SearchActivity extends AppCompatActivity {
     private RecyclerItemClickListener recyclerItemClickListener = new RecyclerItemClickListener() {
         @Override
         public void onItemClick(NewsModel news) {
-
-            Toast.makeText(SearchActivity.this,
-                    "List title:  " + news.getTitle(),
-                    Toast.LENGTH_LONG).show();
-
+            toaster.makeToast("List title:  " + news.getTitle());
             Intent i = new Intent(SearchActivity.this, NewsDetailsActivity.class);
             i.putExtra("NewsModel",news);
             startActivity(i);

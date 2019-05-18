@@ -26,7 +26,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
     private ArrayList<NewsModel> newsListFiltered;
     private ArrayList<NewsModel> backupArray;
     private RecyclerItemClickListener recyclerItemClickListener;
-//    NewsAdapter.NewsFilter newsFilter = new NewsAdapter.NewsFilter();
 
 
     public NewsAdapter(Context context, ArrayList<NewsModel> newsArrayList, RecyclerItemClickListener recyclerItemClickListener){
