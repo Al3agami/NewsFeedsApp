@@ -24,15 +24,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
     private Context context;
     private ArrayList<NewsModel> newsArrayList;
     private ArrayList<NewsModel> newsListFiltered;
-    private ArrayList<NewsModel> backupArray;
     private RecyclerItemClickListener recyclerItemClickListener;
 
 
     public NewsAdapter(Context context, ArrayList<NewsModel> newsArrayList, RecyclerItemClickListener recyclerItemClickListener){
         this.context = context;
         this.newsArrayList = newsArrayList;
-        this.backupArray = new ArrayList<>();
-        backupArray.addAll(newsArrayList);
         this.newsListFiltered = newsArrayList;
         this.recyclerItemClickListener = recyclerItemClickListener;
     }
@@ -54,7 +51,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
         Glide.with(context)
                 .load(n.getUrlToImage())
                 .apply(new RequestOptions()
-                        .placeholder(R.mipmap.ic_launcher)
+                        .placeholder(R.mipmap.load_image)
                         .fitCenter())
                 .into(holder.iv_image);
 
@@ -88,8 +85,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
                     ArrayList<NewsModel> filteredList = new ArrayList<>();
                     for (NewsModel row : newsArrayList) {
 
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
                         if (row.getTitle().toLowerCase().contains(charString.toLowerCase())
                                 || row.getAuthor().toLowerCase().contains(charString.toLowerCase())) {
                             filteredList.add(row);

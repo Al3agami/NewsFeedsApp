@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
         @Override
         public void onItemClick(NewsModel news) {
 
-            toaster.makeToast("List title:  " + news.getTitle());
+//            toaster.makeToast("List title:  " + news.getTitle());
             Intent i = new Intent(MainActivity.this, NewsDetailsActivity.class);
             i.putExtra("NewsModel",news);
             startActivity(i);

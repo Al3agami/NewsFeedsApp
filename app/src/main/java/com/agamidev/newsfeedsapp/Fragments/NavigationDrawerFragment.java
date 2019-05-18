@@ -55,11 +55,6 @@ public class NavigationDrawerFragment extends Fragment {
     private void initViews(View v){
         toaster = new Toaster(getActivity());
         drawerItemsArray = new ArrayList<>();
-        civ_avatar = v.findViewById(R.id.civ_avatar);
-        tv_welcome = v.findViewById(R.id.tv_welcome);
-        tv_username = v.findViewById(R.id.tv_username);
-        iv_go_profile = v.findViewById(R.id.iv_go_profile);
-        rv_drawer = v.findViewById(R.id.rv_drawer);
 
     }
 
