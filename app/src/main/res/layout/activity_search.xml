@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".Activities.SearchActivity">
+	<android.support.design.widget.CoordinatorLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		
+		
+		<android.support.design.widget.AppBarLayout
+			android:id="@+id/app_bar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:elevation="0dp">
+			<android.support.v7.widget.Toolbar
+				android:id="@+id/toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:elevation="2dp"
+				app:contentInsetStart="0dp"
+				app:contentInsetEnd="0dp"
+				android:background="@color/colorPrimary">
+				<android.support.constraint.ConstraintLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:paddingStart="5dp"
+					android:paddingEnd="5dp">
+					<ImageView
+						android:id="@+id/iv_back"
+						app:layout_constraintHorizontal_weight="0.15"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:src="@mipmap/back"
+						android:onClick="goBack"
+						app:layout_constraintHorizontal_chainStyle="spread_inside"
+						app:layout_constraintTop_toTopOf="parent"
+						app:layout_constraintBottom_toBottomOf="parent"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintEnd_toStartOf="@+id/et_search"/>
+					
+					<EditText
+						android:id="@+id/et_search"
+						app:layout_constraintHorizontal_weight="0.85"
+						android:layout_width="0dp"
+						android:layout_height="match_parent"
+						android:backgroundTint="@color/colorAccent"
+						android:hint="@string/search_hint"
+						android:textColor="@color/white"
+						android:textColorHint="@color/colorAccent"
+						android:textCursorDrawable="@color/colorAccent"
+						app:layout_constraintTop_toTopOf="@+id/iv_back"
+						app:layout_constraintBottom_toBottomOf="@+id/iv_back"
+						app:layout_constraintStart_toEndOf="@+id/iv_back"
+						app:layout_constraintEnd_toEndOf="parent" />
+					<ImageView
+						android:id="@+id/iv_cancel"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:src="@mipmap/cancel"
+						android:onClick="btnCancelSearchListener"
+						app:layout_constraintTop_toTopOf="@+id/et_search"
+						app:layout_constraintBottom_toBottomOf="@+id/et_search"
+						app:layout_constraintEnd_toEndOf="@+id/et_search"/>
+					<!--<ImageView-->
+						<!--android:id="@+id/iv_search"-->
+						<!--android:layout_width="wrap_content"-->
+						<!--android:layout_height="wrap_content"-->
+						<!--android:src="@mipmap/search_icon"-->
+						<!--android:onClick="startSearch"-->
+						<!--app:layout_constraintEnd_toEndOf="parent"-->
+						<!--app:layout_constraintTop_toTopOf="parent"-->
+						<!--app:layout_constraintBottom_toBottomOf="parent"/>-->
+				</android.support.constraint.ConstraintLayout>
+			</android.support.v7.widget.Toolbar>
+		</android.support.design.widget.AppBarLayout>
+		
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/rv_news_list"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior"
+			android:layout_margin="20dp" />
+	</android.support.design.widget.CoordinatorLayout>
+	
+</android.support.constraint.ConstraintLayout>

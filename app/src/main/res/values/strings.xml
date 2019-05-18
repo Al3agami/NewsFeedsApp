@@ -1,0 +1,29 @@
+<resources>
+	<string name="app_name">News Feeds</string>
+	<string name="company_name">LINK DEVELOPMENT</string>
+	
+	<string name="title_text">Amazing Images: The Best Science Photo of the Week</string>
+	<string name="news_source">By Livescience.com</string>
+	<string name="news_date">April, 3 2017</string>
+	<string name="long_text">This is a plain text that can be exchanged with another text from internet</string>
+	<string name="date_text">April 16, 2017</string>
+	<string name="navigation_drawer_open">navigation_drawer_open</string>
+	<string name="navigation_drawer_close">navigation_drawer_close</string>
+	
+	//Retrofit Keys
+	<string name="source">the-next-web</string>
+	<string name="apiKey">533af958594143758318137469b41ba9</string>
+	
+	//Navigation Drawer
+	<string name="welcome">welcome</string>
+	<string name="username_text">Muhammad Nagi</string>
+	<string name="explore">Explore</string>
+	<string name="live_chat">Live Chat</string>
+	<string name="gallery">Gallery</string>
+	<string name="wish_list">Wish List</string>
+	<string name="e_magazine">E-Magazine</string>
+	
+	//Search
+	<string name="search">Search</string>
+	<string name="search_hint">Search news...</string>
+</resources>

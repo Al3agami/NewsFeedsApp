@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<group>
+		<item android:id="@+id/explore"
+			android:icon="@mipmap/explore"
+			android:title="@string/explore"/>
+		
+		<item android:id="@+id/live_char"
+			android:icon="@mipmap/live_chat"
+			android:title="@string/live_chat" />
+		
+		<item android:id="@+id/gallery"
+			android:icon="@mipmap/gallery"
+			android:title="@string/gallery" />
+		
+		<item android:id="@+id/wish_list"
+			android:icon="@mipmap/wish_list"
+			android:title="@string/wish_list" />
+		
+		<item android:id="@+id/magazine"
+			android:icon="@mipmap/magazine"
+			android:title="@string/e_magazine" />
+	</group>
+	
+	<!--<group android:id="@+id/group_menu">-->
+		<!--<item android:id="@+id/nav_item_four"-->
+			<!--android:title="Item 4" />-->
+		<!--<item android:id="@+id/nav_item_five"-->
+			<!--android:title="Item 5" />-->
+	<!--</group>-->
+	<!---->
+	<!--<item android:title="Title 1">-->
+		<!--<menu>-->
+			<!--<item android:id="@+id/nav_item_six"-->
+				<!--android:icon="@drawable/ic_drafts_black_24dp"-->
+				<!--android:title="Item 6" />-->
+			<!--<item android:id="@+id/nav_item_seven"-->
+				<!--android:icon="@drawable/ic_drafts_black_24dp"-->
+				<!--android:title="Item 7" />-->
+		<!--</menu>-->
+	<!--</item>-->
+</menu>
