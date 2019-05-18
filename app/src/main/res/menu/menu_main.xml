@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--THIS FILE IS N OT IN USE
+IT USED IT FIRSTLY INSTEAD OF MAKING CUSTOM SEARCH IMAGE,
+BUT I COULD NOT CHANGE THE COLOR OF THE DEFAULT ICON
+SO I MADE IT CUSTOM-->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"

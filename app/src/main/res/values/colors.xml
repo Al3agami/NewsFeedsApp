@@ -7,10 +7,10 @@
 	<color name="drawerBackground">#FAFAFA</color>
 	<color name="titleColor">#787878</color>
 	<color name="smallTextColor">#A7A7A7</color>
+	<color name="transBlack">#33202020</color>
 	
 	//Another Colors
 	<color name="white">#FFFFFF</color>
-	<color name="transBlack">#33202020</color>
 	<color name="yellow">#FFFF00</color>
 	<color name="fuchsia">#FF00FF</color>
 	<color name="red">#FF0000</color>
