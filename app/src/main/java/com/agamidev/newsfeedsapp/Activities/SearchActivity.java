@@ -27,31 +27,25 @@ import butterknife.ButterKnife;
 
 public class SearchActivity extends AppCompatActivity {
 
+    //Search View
+    @BindView(R.id.et_search)
+    EditText et_search;
 
+    //News Recycler
+    @BindView(R.id.rv_news_list)
+    RecyclerView rv_news_list;
     ArrayList<NewsModel> newsArrayList;
     NewsAdapter mNewsAdapter;
 
     public Toaster toaster;
-
-    @BindView(R.id.rv_news_list)
-    RecyclerView rv_news_list;
-
-    @BindView(R.id.et_search)
-    EditText et_search;
-
-    Boolean isFiltered = false;
-
-
-    private MainContract.presenter presenter;
+    public static String TAG = SearchActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         ButterKnife.bind(this);
-
-        toaster = new Toaster(this);
-
+        init();
 
         et_search.addTextChangedListener(new TextWatcher() {
             @Override
@@ -74,25 +68,28 @@ public class SearchActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+
+    private void init(){
+        toaster = new Toaster(this);
         newsArrayList = new ArrayList<>();
 
+        //Get News Array
         if (getIntent().getExtras() != null){
             newsArrayList = getIntent().getExtras().getParcelableArrayList("newsArray");
-            Log.e("newwwwwws",newsArrayList.toString());
+            Log.e("newsArray in "+TAG,newsArrayList.toString());
 
             fillRecycler(newsArrayList);
         }else {
             toaster.makeToast("Cannot Load News!");
         }
 
-
-
     }
+
     private RecyclerItemClickListener recyclerItemClickListener = new RecyclerItemClickListener() {
         @Override
         public void onItemClick(NewsModel news) {
-//            toaster.makeToast("List title:  " + news.getTitle());
             Intent i = new Intent(SearchActivity.this, NewsDetailsActivity.class);
             i.putExtra("NewsModel",news);
             startActivity(i);

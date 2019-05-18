@@ -51,9 +51,11 @@ public class NewsDetailsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         init();
+    }
 
-
-
+    public void init(){
+        newsArrayList = new ArrayList<>();
+        newsArrayList = MainActivity.newsArrayList;
 
         if (getIntent().getExtras() != null) {
             myModel = (NewsModel) getIntent().getExtras().get("NewsModel");
@@ -65,24 +67,6 @@ public class NewsDetailsActivity extends AppCompatActivity {
         }else {
             Log.e(TAG+": myModel", null);
         }
-
-
-        btn_open_website.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse(myModel.getUrl()));
-                startActivity(intent);
-            }
-        });
-
-    }
-
-    public void init(){
-        newsArrayList = new ArrayList<>();
-        newsArrayList = MainActivity.newsArrayList;
     }
 
     private void fillView(NewsModel myModel){
@@ -110,5 +94,13 @@ public class NewsDetailsActivity extends AppCompatActivity {
         Intent i = new Intent(NewsDetailsActivity.this, SearchActivity.class);
         i.putParcelableArrayListExtra("newsArray",newsArrayList);
         startActivity(i);
+    }
+
+    public void openOnWebsite(View view) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse(myModel.getUrl()));
+        startActivity(intent);
     }
 }

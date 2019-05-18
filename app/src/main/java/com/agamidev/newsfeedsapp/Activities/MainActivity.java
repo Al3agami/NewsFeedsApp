@@ -43,28 +43,26 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
 
 
 
-    //drawer
+    //Drawer
     public static DrawerLayout drawerLayout;
     public static FragmentManager fragmentManager;
     NavigationDrawerFragment navigationDrawerFragment;
 
-    //recyler
+    //Recycler
     @BindView(R.id.rv_news_list)
     RecyclerView rv_news_list;
     NewsAdapter mNewsAdapter;
     static ArrayList<NewsModel> newsArrayList;
     @BindView(R.id.pullToRefresh)
     SwipeRefreshLayout pullToRefresh;
+    private MainContract.presenter presenter;
 
-
+    //Search
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     private ProgressBar progressBar;
 
-    private MainContract.presenter presenter;
-
     Toaster toaster;
-
     private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
@@ -74,13 +72,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
         ButterKnife.bind(this);
         init();
         setSupportActionBar(toolbar);
-        initializeToolbarAndRecyclerView();
+        initializeRecyclerView();
         initProgressBar();
-
-        presenter = new MainPresenterImpl(this, new GetNewsInteractorImpl());
-        presenter.requestDataFromServer();
-
-        fragmentManager.beginTransaction().replace(R.id.nav_view, navigationDrawerFragment).commit();
+        getNewsData();
 
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -92,19 +86,23 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
 
     }
 
+    private void getNewsData(){
+        presenter = new MainPresenterImpl(this, new GetNewsInteractorImpl());
+        presenter.requestDataFromServer();
+    }
+
     private void init(){
         toaster = new Toaster(this);
         drawerLayout = findViewById(R.id.drawerLayout);
         fragmentManager = getSupportFragmentManager();
-        newsArrayList = new ArrayList<>();
         navigationDrawerFragment = new NavigationDrawerFragment();
+        fragmentManager.beginTransaction().replace(R.id.nav_view, navigationDrawerFragment).commit();
     }
 
-    private void initializeToolbarAndRecyclerView() {
+    private void initializeRecyclerView() {
+        newsArrayList = new ArrayList<>();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         rv_news_list.setLayoutManager(layoutManager);
-
-
     }
 
     private void initProgressBar() {
@@ -129,8 +127,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
     private RecyclerItemClickListener recyclerItemClickListener = new RecyclerItemClickListener() {
         @Override
         public void onItemClick(NewsModel news) {
-
-//            toaster.makeToast("List title:  " + news.getTitle());
             Intent i = new Intent(MainActivity.this, NewsDetailsActivity.class);
             i.putExtra("NewsModel",news);
             startActivity(i);

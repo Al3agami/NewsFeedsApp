@@ -9,10 +9,6 @@ import retrofit2.http.Query;
 
 public interface ServiceApi {
 
-//    @GET("articles?source=the-next-web&apiKey=533af958594143758318137469b41ba9")
-//    Call<MainModel> getNews(
-//    );
-
     @GET("articles")
     Call<MainModel> getNews(
             @Query("source") String source,

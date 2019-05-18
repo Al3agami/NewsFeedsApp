@@ -43,7 +43,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:src="@mipmap/right_arrow"
-		android:layout_marginStart="5dp"
+		android:layout_marginStart="10dp"
 		android:layout_marginEnd="25dp"
 		app:layout_constraintTop_toTopOf="@id/civ_avatar"
 		app:layout_constraintBottom_toBottomOf="@+id/civ_avatar"
