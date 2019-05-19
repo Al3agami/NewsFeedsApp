@@ -61,90 +61,96 @@
 				</android.support.constraint.ConstraintLayout>
 			</android.support.v7.widget.Toolbar>
 		</android.support.design.widget.AppBarLayout>
-		<LinearLayout
+		<ScrollView
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			app:layout_behavior="@string/appbar_scrolling_view_behavior"
-			android:orientation="vertical"
-			android:padding="20dp">
-			<android.support.constraint.ConstraintLayout
-				android:id="@+id/cl_news_details"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior">
+			<LinearLayout
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:background="@drawable/card_shadow_background"
-				app:layout_constraintTop_toTopOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintEnd_toEndOf="parent">
-				<ImageView
-					android:id="@+id/iv_image"
+				android:layout_height="0dp"
+				app:layout_behavior="@string/appbar_scrolling_view_behavior"
+				android:orientation="vertical"
+				android:padding="20dp">
+				<android.support.constraint.ConstraintLayout
+					android:id="@+id/cl_news_details"
 					android:layout_width="match_parent"
-					android:layout_height="@dimen/image_height"
-					android:scaleType="fitXY"
-					android:src="@mipmap/ic_launcher"
+					android:layout_height="wrap_content"
+					android:background="@drawable/card_shadow_background"
 					app:layout_constraintTop_toTopOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintEnd_toEndOf="parent" />
-				<TextView
-					android:id="@+id/tv_date"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:text="@string/date_text"
-					android:textColor="@color/white"
-					android:background="@color/transBlack"
-					android:padding="2dp"
-					android:textSize="@dimen/very_small_text"
-					android:layout_marginEnd="10dp"
-					android:layout_marginBottom="25dp"
-					app:layout_constraintEnd_toEndOf="@+id/iv_image"
-					app:layout_constraintBottom_toBottomOf="@+id/iv_image"/>
-				<LinearLayout
-					android:id="@+id/ll_news_details"
+					app:layout_constraintEnd_toEndOf="parent">
+					<ImageView
+						android:id="@+id/iv_image"
+						android:layout_width="match_parent"
+						android:layout_height="@dimen/image_height"
+						android:scaleType="fitXY"
+						android:src="@mipmap/ic_launcher"
+						app:layout_constraintTop_toTopOf="parent"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintEnd_toEndOf="parent" />
+					<TextView
+						android:id="@+id/tv_date"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="@string/date_text"
+						android:textColor="@color/white"
+						android:background="@color/transBlack"
+						android:padding="2dp"
+						android:textSize="@dimen/very_small_text"
+						android:layout_marginEnd="10dp"
+						android:layout_marginBottom="25dp"
+						app:layout_constraintEnd_toEndOf="@+id/iv_image"
+						app:layout_constraintBottom_toBottomOf="@+id/iv_image"/>
+					<LinearLayout
+						android:id="@+id/ll_news_details"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="vertical"
+						android:padding="@dimen/news_padding"
+						app:layout_constraintTop_toBottomOf="@+id/iv_image"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintEnd_toEndOf="parent">
+						<TextView
+							android:id="@+id/tv_title"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:text="@string/title_text"
+							android:textColor="@color/titleColor"
+							android:textSize="@dimen/title"/>
+						<TextView
+							android:id="@+id/tv_author"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="3dp"
+							android:text="@string/news_source"
+							android:textColor="@color/smallTextColor"
+							android:textSize="@dimen/small_text"/>
+						<TextView
+							android:id="@+id/tv_description"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_marginTop="3dp"
+							android:text="@string/long_text"
+							android:textColor="@color/smallTextColor"
+							android:textSize="@dimen/small_text"/>
+					</LinearLayout>
+				</android.support.constraint.ConstraintLayout>
+				
+				<Button
+					android:id="@+id/btn_open_website"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:orientation="vertical"
-					android:padding="@dimen/news_padding"
-					app:layout_constraintTop_toBottomOf="@+id/iv_image"
+					android:layout_marginTop="20dp"
+					android:text="Open Website"
+					android:onClick="openOnWebsite"
+					android:textColor="@color/white"
+					android:background="@color/colorPrimaryDark"
+					app:layout_constraintTop_toBottomOf="@+id/cl_news_details"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintEnd_toEndOf="parent">
-					<TextView
-						android:id="@+id/tv_title"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:text="@string/title_text"
-						android:textColor="@color/titleColor"
-						android:textSize="@dimen/title"/>
-					<TextView
-						android:id="@+id/tv_author"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_marginTop="3dp"
-						android:text="@string/news_source"
-						android:textColor="@color/smallTextColor"
-						android:textSize="@dimen/small_text"/>
-					<TextView
-						android:id="@+id/tv_description"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_marginTop="3dp"
-						android:text="@string/long_text"
-						android:textColor="@color/smallTextColor"
-						android:textSize="@dimen/small_text"/>
-				</LinearLayout>
-			</android.support.constraint.ConstraintLayout>
-			
-			<Button
-				android:id="@+id/btn_open_website"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="20dp"
-				android:text="Open Website"
-				android:onClick="openOnWebsite"
-				android:textColor="@color/white"
-				android:background="@color/colorPrimaryDark"
-				app:layout_constraintTop_toBottomOf="@+id/cl_news_details"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintEnd_toEndOf="parent"/>
-		</LinearLayout>
+					app:layout_constraintEnd_toEndOf="parent"/>
+			</LinearLayout>
+		</ScrollView>
+		
 		
 	</android.support.design.widget.CoordinatorLayout>
 

@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
 
     }
 
+
     private void getNewsData(){
         presenter = new MainPresenterImpl(this, new GetNewsInteractorImpl());
         presenter.requestDataFromServer();
